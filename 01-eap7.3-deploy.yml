@@ -1,0 +1,38 @@
+---
+
+- hosts: appserver 
+  become_user: "{{ ansible_centos_user }}"
+  become: true
+  gather_facts: true
+
+  vars_prompt:
+    - name: "rhn_username"
+      prompt: "Enter Your Red Hat Customer Portal Username"
+      private: no
+
+    - name: "rhn_password"
+      prompt: "Enter Your Red Hat Customer Portal Password"
+      private: yes
+
+  vars:
+    app_url: SampleWebApp.war
+    jboss_home: /opt/jboss-as/jboss-eap-7.3/
+    app: "{{ jboss_home }}/standalone/deployments/SampleWebApp.war"
+    ansible_distribution: CentOS 
+    ansible_os_family: CentOS 
+    ansible_pkg_mgr: yum
+
+  roles:
+    - redhat-cop.jboss_common
+    - redhat-cop.jboss_eap
+
+  tasks:
+    - name: "Download a demo app to deploy"
+      copy:
+        src: "{{ app_url }}"
+        dest: "{{ app }}"
+
+    - name: "Restart Wildfly"
+      command: "{{ jboss_home }}/bin/jboss-cli.sh --connect --command=':reload'"
+      register: cli_result
+
