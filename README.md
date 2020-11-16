@@ -4,6 +4,32 @@
 
 This repository provides a set of generic roles and reusable playbooks for deploying JBoss Middleware and associated CI / CD tooling.
 
+## Prerequisites
+
+All installations are performed on the deployment machine
+
+### Update yum repository
+
+sudo yum -y update
+
+sudo yum install epel-release
+
+sudo yum -y update
+
+### Install Ansible
+
+sudo yum -y install ansible
+
+ansible --version
+
+### Install Git
+
+sudo yum install git
+
+### Downloads
+- EAP 7.3
+- mod_jk build for centos 7
+
 ## Getting Started
 
 1. Update group_vars/all/all.yml to reflect your environment
