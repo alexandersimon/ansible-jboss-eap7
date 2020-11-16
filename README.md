@@ -28,7 +28,8 @@ sudo yum install git
 
 ### Downloads
 - EAP 7.3
-- mod_jk build for centos 7
+- This projekt 'gh repo clone alexandersimon/ansible-jboss-eap7'
+- Load Balance Projekt 'gh repo clone alexandersimon/ansible-httpd-lb'
 
 ## Getting Started
 
