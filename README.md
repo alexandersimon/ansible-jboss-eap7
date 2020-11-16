@@ -27,9 +27,9 @@ ansible --version
 sudo yum install git
 
 ### Downloads
+- This projekt 'git clone https://github.com/alexandersimon/ansible-jboss-eap7.git'
+- Load Balance Projekt 'git clone https://github.com/alexandersimon/ansible-httpd-lb.git'
 - EAP 7.3
-- This projekt 'gh repo clone alexandersimon/ansible-jboss-eap7'
-- Load Balance Projekt 'gh repo clone alexandersimon/ansible-httpd-lb'
 
 ## Getting Started
 
