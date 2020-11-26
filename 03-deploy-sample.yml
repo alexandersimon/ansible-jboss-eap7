@@ -1,0 +1,15 @@
+---
+- name: Deploy SimpleWebApp
+  hosts: appserver
+  tasks:
+    - name: Copy application WAR file to host
+      copy:
+        src: SampleWebApp.war
+        dest: /tmp
+
+    - name: Deploy HelloWorld to JBoss
+      jboss:
+        deploy_path: /opt/jboss-as/jboss-eap-7.3/standalone/deployments/ 
+        src: /tmp/SampleWebApp.war
+        deployment: SampleWebApp.war
+        state: present

@@ -1,7 +1,0 @@
-- hosts: appserver
-  collections:
-    - wildfly.jcliff
-  tasks:
-    - name: Include Jcliff role
-      include_role:
-        name: jcliff

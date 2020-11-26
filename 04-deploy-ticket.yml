@@ -1,0 +1,15 @@
+---
+- name: Deploy ticket-monster 
+  hosts: appserver
+  tasks:
+    - name: Copy application WAR file to host
+      copy:
+        src: ticket-monster.war
+        dest: /tmp
+
+    - name: Deploy ticket-monster to JBoss
+      jboss:
+        deploy_path: /opt/jboss-as/jboss-eap-7.3/standalone/deployments/ 
+        src: /tmp/ticket-monster.war
+        deployment: ticket-monster.war
+        state: present

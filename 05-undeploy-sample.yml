@@ -1,0 +1,9 @@
+---
+- name: Deploy ticket-monster 
+  hosts: appserver
+  tasks:
+    - name: Undeploy Application to JBoss
+      jboss:
+        deploy_path: /opt/jboss-as/jboss-eap-7.3/standalone/deployments/ 
+        deployment: SampleWebApp.war 
+        state: absent
